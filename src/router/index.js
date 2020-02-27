@@ -1,13 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import homePage from '@/components/homePage'
-import showOff from '@/components/showOff'
+import showOff from '@/components/showOffPage'
 import Auth from '@okta/okta-vue'
 
 
 Vue.use(Auth, {
-  //issuer: process.env.VUE_APP_OKTADOMAIN,
-  //client_id: process.env.OKTACLIENTID,
   issuer: process.env.OKTADOMAIN,
   client_id: process.env.OKTACLIENTID,
   redirect_uri: 'http://localhost:8080/implicit/callback',
@@ -29,8 +27,8 @@ let router = new Router({
       component: Auth.handleCallback()
     },
     {
-      path: '/show-off',
-      name: 'Show-Off',
+      path: '/show-off-page',
+      name: 'showOffPage',
       component: showOff,
       meta: {
         requiresAuth: true
