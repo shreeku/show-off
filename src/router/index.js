@@ -1,23 +1,28 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import homePage from '@/components/homePage'
+import showOff from '@/components/showOff'
 import Auth from '@okta/okta-vue'
 
+
 Vue.use(Auth, {
-  issuer: 'https://{yourOktaDomain}/oauth2/default',
-  client_id: '{clientId}',
+  //issuer: process.env.VUE_APP_OKTADOMAIN,
+  //client_id: process.env.OKTACLIENTID,
+  issuer: process.env.OKTADOMAIN,
+  client_id: process.env.OKTACLIENTID,
   redirect_uri: 'http://localhost:8080/implicit/callback',
   scope: 'openid profile email'
 })
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'homePage',
+      component: homePage
     },
     {
       path: '/implicit/callback',
@@ -26,7 +31,7 @@ export default new Router({
     {
       path: '/show-off',
       name: 'Show-Off',
-      component: Show-Off,
+      component: showOff,
       meta: {
         requiresAuth: true
       }
@@ -35,5 +40,4 @@ export default new Router({
 })
 
 router.beforeEach(Vue.prototype.$auth.authRedirectGuard())
-
 export default router
