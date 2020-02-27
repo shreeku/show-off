@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import homePage from '@/components/homePage'
 import showOff from '@/components/showOffPage'
 import Auth from '@okta/okta-vue'
-
+require('dotenv').config();
 
 Vue.use(Auth, {
   issuer: process.env.OKTADOMAIN,

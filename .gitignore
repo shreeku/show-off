@@ -2,6 +2,7 @@
 node_modules/
 /dist/
 config/dev.env.js
+test.sqlite
 .env
 npm-debug.log*
 yarn-debug.log*
