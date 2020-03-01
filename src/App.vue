@@ -2,7 +2,7 @@
   <div id="app">
     <b-navbar toggleable="md" type="dark" variant="dark">
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-      <b-navbar-brand to="/">Show-Off</b-navbar-brand>
+      <b-navbar-brand to="/">Show-Off Board</b-navbar-brand>
       <b-collapse is-nav id="nav-collapse">
         <b-navbar-nav>
           <b-nav-item to="/">Home</b-nav-item>
